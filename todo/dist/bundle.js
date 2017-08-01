@@ -65,7 +65,7 @@ var TodoBuilder = function () {
   _createClass(TodoBuilder, [{
     key: 'initBuilder',
     value: function initBuilder() {
-      this.addNewTodo();
+      this.addTodoEvent();
       this.showList();
       this.deleteTodoList();
       this.headlineEvent();
@@ -73,22 +73,17 @@ var TodoBuilder = function () {
   }, {
     key: 'builderLayout',
     value: function builderLayout() {
-      this.boardHeader = '\n                <div class="toolbar">\n                  <div class="logo">\n                    ToDo List\n                  </div>\n                </div>\n                <div class="fab">\n                  <button class="fab-button" type="button"><img src="icons/fab.svg" alt="fab icon"></button>\n                </div>\n                <div class="content"></div>\n        ';
+      this.boardHeader = '\n                <div class="toolbar ">\n                  <div class="logo">\n                    ToDo List\n                  </div>\n                </div>\n                <div class="fab">\n                  <button class="fab-button" type="button"><img src="icons/fab.svg" alt="fab icon"></button>\n                </div>\n                <div class="content"></div>\n        ';
       this.boardContainer = document.createElement('div');
       this.boardContainer.className = 'app-content';
       this.boardContainer.innerHTML = this.boardHeader;
       this.container = document.querySelector('.board-wrapper');
       this.container.appendChild(this.boardContainer);
-
-      /* this.todoWrapper = document.createElement('div');
-       this.todoWrapper.className = 'todo-wrapper';
-       this.container.appendChild(this.todoWrapper) */
-
       this.addLists = document.querySelector('.fab');
     }
   }, {
-    key: 'addNewTodo',
-    value: function addNewTodo() {
+    key: 'addTodoEvent',
+    value: function addTodoEvent() {
       var _this = this;
 
       this.addLists.addEventListener('click', function (e) {
@@ -219,7 +214,7 @@ var TodoList = function () {
     key: 'initTodoList',
     value: function initTodoList() {
       this.showItem();
-      this.addNewItem();
+      this.addItemEvent();
       this.todoCustomEvent();
       this.deleteItem();
       this.updateItem();
@@ -255,8 +250,8 @@ var TodoList = function () {
       });
     }
   }, {
-    key: 'addNewItem',
-    value: function addNewItem() {
+    key: 'addItemEvent',
+    value: function addItemEvent() {
       var _this = this;
 
       this.buttonID.addEventListener('click', function (e) {
@@ -442,22 +437,6 @@ var TodoListItem = function () {
         detail: {}
       });
     }
-
-    /*
-            <!-- <li class="list-item">
-                 <div class="item-input">
-                     <input class="item-checkbox" type="checkbox" checked="checked" />
-          </div>
-          <div class="item-text">
-            <input class="item-input--tag" type="text" value="">
-            <span class="highlight"></span>
-            <span class="bar"></span>
-          </div>
-          <div class="item-buttonn">
-            <button class="item-delete" type="button"><img src="delete.svg" alt="delete icon"> </button>
-          </div>
-          </li> --> */
-
   }, {
     key: 'createEntry',
     value: function createEntry() {
@@ -474,7 +453,7 @@ var TodoListItem = function () {
     key: 'createElemLi',
     value: function createElemLi() {
       this.elemLi = document.createElement('li');
-      this.elemLi.className = 'list-item';
+      this.elemLi.className = 'list-item ';
     }
   }, {
     key: 'createElemCheckbox',
@@ -504,14 +483,10 @@ var TodoListItem = function () {
     value: function createElemInput() {
       this.inputItem = document.createElement('div');
       this.inputItem.className = 'item-text';
-
       this.inputElem = document.createElement('input');
       this.inputElem.className = 'item-input--tag';
       this.inputElem.type = 'text';
       this.inputElem.value = this.elem.title;
-      /*  this.highlight = ` <span class="highlight"></span>
-                           <span class="bar"></span>`;
-        this.inputItem.append(this.highlight); */
     }
   }, {
     key: 'deleteItem',
