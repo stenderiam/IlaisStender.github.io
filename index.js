@@ -9,7 +9,7 @@ if ('serviceWorker' in navigator) {
     })
     .catch((err) => {
       console.log('Service Worker failed to Register', err);
-    })
+    });
 }
 
 new TodoBuilder();
