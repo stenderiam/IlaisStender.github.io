@@ -9,7 +9,24 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var first = new _todoBuilder2.default();
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function (registration) {
+    console.log('Server Worker Registered', registration);
+  }).catch(function (err) {
+    console.log('Service Worker failed to Register', err);
+  });
+}
+
+/*
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then((reg) => {
+    console.log(`Registration succeeded. Scope is ${reg.scope}`);
+  }).catch((error) => {
+    console.log(`Registration failed with ${error}`);
+  });
+}
+*/
+new _todoBuilder2.default();
 
 },{"./modules/todoBuilder.js":2}],2:[function(require,module,exports){
 'use strict';
