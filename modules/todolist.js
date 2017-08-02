@@ -23,6 +23,7 @@ export default class TodoList {
     this.clearTodoOnClick();
     this.deleteTodoList();
     this.headlineChange();
+    this.test();
   }
 
   createLayout() {
@@ -121,6 +122,12 @@ export default class TodoList {
       const index = this.itemsStorage.findIndex(elem => elem.id === elId);
       this.itemsStorage[index] = e.detail.elem;
       this.saveItem();
+    });
+  }
+
+  test() {
+    this.inputID.addEventListener('focus', () => {
+      this.inputID.classList.add('test');
     });
   }
   clearList() {

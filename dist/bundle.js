@@ -87,6 +87,7 @@ var TodoBuilder = function () {
       this.boardContainer.innerHTML = this.boardHeader;
       this.container = document.querySelector('.board-wrapper');
       this.container.appendChild(this.boardContainer);
+      this.container.appendChild(this.boardContainer);
       this.addLists = document.querySelector('.fab');
     }
   }, {
@@ -230,6 +231,7 @@ var TodoList = function () {
       this.clearTodoOnClick();
       this.deleteTodoList();
       this.headlineChange();
+      this.test();
     }
   }, {
     key: 'createLayout',
@@ -332,6 +334,15 @@ var TodoList = function () {
       });
     }
   }, {
+    key: 'test',
+    value: function test() {
+      var _this5 = this;
+
+      this.inputID.addEventListener('focus', function () {
+        _this5.inputID.classList.add('test');
+      });
+    }
+  }, {
     key: 'clearList',
     value: function clearList() {
       this.itemsStorage = [];
@@ -342,39 +353,39 @@ var TodoList = function () {
   }, {
     key: 'clearListOnClick',
     value: function clearListOnClick() {
-      var _this5 = this;
+      var _this6 = this;
 
       this.removeList.addEventListener('click', function () {
-        _this5.removeList.classList.remove('button-visible');
-        _this5.clearList();
+        _this6.removeList.classList.remove('button-visible');
+        _this6.clearList();
       });
     }
   }, {
     key: 'clearTodoOnClick',
     value: function clearTodoOnClick() {
-      var _this6 = this;
+      var _this7 = this;
 
       this.deleteTodo.addEventListener('click', function () {
-        _this6.clearList();
+        _this7.clearList();
       });
     }
   }, {
     key: 'headlineChange',
     value: function headlineChange() {
-      var _this7 = this;
+      var _this8 = this;
 
       this.headline.addEventListener('change', function () {
-        _this7.headlineEvent.detail.todoLIST = Object.assign({}, _this7.todoLIST, { todoListTitle: _this7.headline.value });
-        document.dispatchEvent(_this7.headlineEvent);
+        _this8.headlineEvent.detail.todoLIST = Object.assign({}, _this8.todoLIST, { todoListTitle: _this8.headline.value });
+        document.dispatchEvent(_this8.headlineEvent);
       });
     }
   }, {
     key: 'deleteTodoList',
     value: function deleteTodoList() {
-      var _this8 = this;
+      var _this9 = this;
 
       this.deleteTodo.addEventListener('click', function () {
-        document.dispatchEvent(_this8.deleteLISTEvent);
+        document.dispatchEvent(_this9.deleteLISTEvent);
       });
     }
   }, {

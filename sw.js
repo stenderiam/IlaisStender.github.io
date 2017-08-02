@@ -1,32 +1,34 @@
-// Set a name for the current cache
 const cacheName = 'v1';
 
-// Default files to always cache
+// файлы для кэширования
 const cacheFiles = [
   './',
   './index.html',
-  './dist/bundle.js',
   './css/normalize.css',
   './css/main.css',
+  // bundle!
+  './dist/bundle.js',
   './icons/add.svg',
   './icons/delete.svg',
   './icons/fab.svg',
 ];
+// install 
 
 self.addEventListener('install', (e) => {
   console.log('[ServiceWorker] Installed');
 
-  // e.waitUntil Delays the event until the Promise is resolved
+  // e.waitUntil - passing a promise to extend the
+  // installing stage untile the promise is resolved
+
   e.waitUntil(
 
-    // Open the cache
     caches.open(cacheName).then((cache) => {
 
       // Add all the default files to the cache
       console.log('[ServiceWorker] Caching cacheFiles');
       return cache.addAll(cacheFiles);
-    })
-  ); // end e.waitUntil
+    }),
+  );
 });
 
 
@@ -47,9 +49,8 @@ self.addEventListener('activate', (e) => {
           return caches.delete(thisCacheName);
         }
       }));
-    })
+    }),
   ); // end e.waitUntil
-
 });
 
 
@@ -62,7 +63,6 @@ self.addEventListener('fetch', (e) => {
     // Check in cache for the request being made
     caches.match(e.request)
 
-
       .then((response) => {
 
         // If the request is in the cache
@@ -74,16 +74,14 @@ self.addEventListener('fetch', (e) => {
 
         // If the request is NOT in the cache, fetch and cache
 
-        let requestClone = e.request.clone();
+        const requestClone = e.request.clone();
         fetch(requestClone)
           .then((response) => {
-
             if (!response) {
-              console.log("[ServiceWorker] No response from fetch ")
+              console.log('[ServiceWorker] No response from fetch ')
               return response;
             }
-
-            let responseClone = response.clone();
+            const responseClone = response.clone();
 
             //  Open the cache
             caches.open(cacheName).then((cache) => {

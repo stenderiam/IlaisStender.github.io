@@ -4,7 +4,7 @@ body {
 }
 
 .toolbar {
-    background: #3949ab;
+    background: #FFEB3B;
     height: 56px;
     color: white;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
@@ -96,14 +96,17 @@ button {
 }
 
 button.item-delete {
+    visibility: hidden;
     height: 34px;
     border-radius: 180px;
     width: 34px;
     margin-left: 16px;
-    display: flex;
-    justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+.test {
+    visibility: visible;
 }
 
 input.item-submit {
@@ -202,6 +205,8 @@ button {
 button.fab-button {
     width: 56px;
     height: 56px;
+    display: flex;
+    justify-content: center;
     border-radius: 180px;
     background: #f50057;
     position: fixed;
@@ -237,12 +242,12 @@ button.delete-button:focus {
 
 .clear-list,
 .delete-list {
-    padding-right: 8px;
-    margin: 32px 8px 8px 8px;
+    margin: 24px 8px 8px 8px;
 }
 
 .list-button {
     display: flex;
+    justify-content: flex-end;
 }
 
 .task-isDone {
@@ -254,7 +259,7 @@ button.delete-button:focus {
     display: block;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 680px) {
     .content {
         display: flex;
         flex-wrap: wrap;
@@ -273,7 +278,7 @@ button.delete-button:focus {
         flex-direction: row;
     }
     .card {
-        width: calc(32vw - 16px);
+        width: 32%;
         justify-content: space-between;
     }
 }
@@ -281,7 +286,7 @@ button.delete-button:focus {
 @media (min-width: 1440px) {
     .card {
         height: 100%;
-        width: calc(20vw - 16px);
+        width: 23%;
         justify-content: space-between;
     }
 }
