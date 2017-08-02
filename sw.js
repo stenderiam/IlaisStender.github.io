@@ -4,10 +4,15 @@ const cacheName = 'v1';
 // Default files to always cache
 const cacheFiles = [
   './',
+  './modules/todolist',
+  './modules/todolistitem',
+  './modules/index.js',
   './index.html',
   './css/normalize.css',
   './css/main.css',
   './dist/bundle.js',
+  // './modules/todoBuilder',
+
   './icons/add.svg',
   './icons/delete.svg',
   './icons/fab.svg',
