@@ -94,9 +94,7 @@ self.addEventListener('fetch', (e) => {
 
               // Return the response
               return response;
-
             }); // end caches.open
-
           })
           .catch((err) => {
             console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
