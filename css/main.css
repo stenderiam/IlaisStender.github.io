@@ -96,17 +96,12 @@ button {
 }
 
 button.item-delete {
-    visibility: hidden;
     height: 34px;
     border-radius: 180px;
     width: 34px;
     margin-left: 16px;
     position: relative;
     overflow: hidden;
-}
-
-.test {
-    visibility: visible;
 }
 
 input.item-submit {
