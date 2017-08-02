@@ -23,7 +23,6 @@ export default class TodoList {
     this.clearTodoOnClick();
     this.deleteTodoList();
     this.headlineChange();
-    this.test();
   }
 
   createLayout() {
