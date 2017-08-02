@@ -32,6 +32,8 @@ export default class TodoBuilder {
     this.boardContainer.className = 'app-content';
     this.boardContainer.innerHTML = this.boardHeader;
     this.container = document.querySelector('.board-wrapper');
+    this.container.innerHTML = '';
+    this.container.appendChild(this.boardContainer);
     this.container.appendChild(this.boardContainer);
     this.addLists = document.querySelector('.fab');
   }
